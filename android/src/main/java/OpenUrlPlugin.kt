@@ -7,6 +7,8 @@ import app.tauri.annotation.TauriPlugin
 import app.tauri.plugin.JSObject
 import app.tauri.plugin.Plugin
 import app.tauri.plugin.Invoke
+import android.content.Intent
+import android.net.Uri
 
 @InvokeArg
 class PingArgs {
