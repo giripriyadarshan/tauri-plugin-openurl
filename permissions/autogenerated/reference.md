@@ -8,6 +8,14 @@ Enables the execute command without any pre-configured scope.
 
 Denies the execute command without any pre-configured scope.
 
+## allow-openurl
+
+Enables the openurl command without any pre-configured scope.
+
+## deny-openurl
+
+Denies the openurl command without any pre-configured scope.
+
 ## allow-ping
 
 Enables the ping command without any pre-configured scope.
