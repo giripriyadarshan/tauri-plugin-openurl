@@ -33,4 +33,8 @@ impl<R: Runtime> Openurl<R> {
             .run_mobile_plugin("ping", payload)
             .map_err(Into::into)
     }
+
+    pub fn openurl(&self, url: String) -> crate::Result<()> {
+        self.0.run_mobile_plugin("openurl", url).map_err(Into::into)
+    }
 }
