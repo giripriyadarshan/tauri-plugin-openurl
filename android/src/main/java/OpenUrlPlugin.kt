@@ -31,8 +31,9 @@ class OpenUrlPlugin(private val activity: Activity): Plugin(activity) {
     }
 
     @Command
-    fun openurl(invoke: Invoke, url: String) {
-        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+    fun openurl(invoke: Invoke) {
+        val url = invoke.parseArgs(PingArgs::class.java)
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url.value ?: "default value :("))
         
         startActivityForResult(invoke, browserIntent, "openUrlResult")
     }
