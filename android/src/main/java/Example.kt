@@ -1,4 +1,4 @@
-package com.plugin.openurl
+package com.giripriyadarshan.openurl
 
 import android.util.Log
 
