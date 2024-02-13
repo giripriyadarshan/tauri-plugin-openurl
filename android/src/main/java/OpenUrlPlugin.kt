@@ -32,5 +32,11 @@ class OpenUrlPlugin(private val activity: Activity): Plugin(activity) {
     fun openurl(invoke: Invoke, url: String) {
         val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
         startActivity(browserIntent)
+        startActivityForResult(invoke, browserIntent, "openUrlResult")
+    }
+
+    @ActivityCallback
+    private fun openUrlResult(invoke: Invoke, result: ActivityResult) {
+        invoke.resolve()
     }
 }
