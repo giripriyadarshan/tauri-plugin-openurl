@@ -1,4 +1,4 @@
-package com.plugin.openurl
+package com.giripriyadarshan.openurl
 
 import android.app.Activity
 import app.tauri.annotation.Command
