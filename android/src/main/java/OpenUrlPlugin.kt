@@ -20,7 +20,7 @@ class OpenUrlArgs {
 class OpenUrlPlugin(private val activity: Activity) : Plugin(activity) {
 
     @Command
-    fun openurl(invoke: Invoke) {
+    fun openUrl(invoke: Invoke) {
         val url = invoke.parseArgs(OpenUrlArgs::class.java)
         val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(url.value ?: "default value :("))
 
