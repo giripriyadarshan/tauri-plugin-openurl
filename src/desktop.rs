@@ -14,9 +14,7 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 pub struct Openurl<R: Runtime>(AppHandle<R>);
 
 impl<R: Runtime> Openurl<R> {
-    pub fn ping(&self, payload: PingRequest) -> crate::Result<PingResponse> {
-        Ok(PingResponse {
-            value: payload.value,
-        })
+    pub fn openurl(&self, url: String) -> crate::Result<()> {
+        Ok(())
     }
 }

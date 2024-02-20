@@ -40,7 +40,6 @@ impl<R: Runtime, T: Manager<R>> crate::OpenurlExt<R> for T {
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
     Builder::new("openurl")
-        .invoke_handler(tauri::generate_handler![commands::execute])
         .setup(|app, api| {
             #[cfg(mobile)]
             let openurl = mobile::init(app, api)?;
