@@ -1,10 +1,10 @@
 # Permissions
 
-## allow-openurl
+## allow-open-url
 
-Enables the openurl command without any pre-configured scope.
+Enables the open_url command without any pre-configured scope.
 
-## deny-openurl
+## deny-open-url
 
-Denies the openurl command without any pre-configured scope.
+Denies the open_url command without any pre-configured scope.
 
