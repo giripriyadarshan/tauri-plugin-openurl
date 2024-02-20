@@ -1,5 +1,5 @@
 import { invoke } from '@tauri-apps/api/core'
 
-export async function execute() {
-  await invoke('plugin:openurl|execute')
+export async function openUrl(url: string) {
+  await invoke('plugin:openurl|open', { url })
 }
