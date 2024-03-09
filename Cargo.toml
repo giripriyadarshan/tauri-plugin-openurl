@@ -9,7 +9,7 @@ exclude = ["/examples", "/webview-dist", "/webview-src", "/node_modules"]
 links = "tauri-plugin-openurl"
 
 [dependencies]
-tauri = { version = "2.0.0-beta.9" }
+tauri = { version = "2.0.0-beta.10" }
 serde = "1.0.197"
 thiserror = "1.0.57"
 
