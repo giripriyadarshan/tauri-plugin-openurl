@@ -1,7 +1,7 @@
 use serde::de::DeserializeOwned;
 use tauri::{plugin::PluginApi, AppHandle, Runtime};
 
-use crate::models::*;
+// use crate::models::*;
 
 pub fn init<R: Runtime, C: DeserializeOwned>(
     app: &AppHandle<R>,
@@ -14,7 +14,7 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 pub struct Openurl<R: Runtime>(AppHandle<R>);
 
 impl<R: Runtime> Openurl<R> {
-    pub fn openurl(&self, url: String) -> crate::Result<()> {
+    pub fn openurl(&self, _url: String) -> crate::Result<()> {
         Ok(())
     }
 }
