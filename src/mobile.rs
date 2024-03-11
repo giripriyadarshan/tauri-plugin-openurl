@@ -30,7 +30,7 @@ pub struct Openurl<R: Runtime>(PluginHandle<R>);
 impl<R: Runtime> Openurl<R> {
     pub fn openurl(&self, url: String) -> crate::Result<OpenurlResponse> {
         self.0
-            .call("openurl", OpenurlRequest { url })
+            .run_mobile_plugin("openurl", OpenurlRequest { url })
             .map_err(Into::into)
     }
 }
