@@ -10,6 +10,7 @@ import app.tauri.annotation.InvokeArg
 import app.tauri.annotation.TauriPlugin
 import app.tauri.plugin.Invoke
 import app.tauri.plugin.Plugin
+import app.tauri.plugin.JSObject
 
 @InvokeArg
 class OpenUrlArgs {
