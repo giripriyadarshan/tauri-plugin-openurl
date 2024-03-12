@@ -12,11 +12,6 @@ import app.tauri.plugin.Invoke
 import app.tauri.plugin.Plugin
 import app.tauri.plugin.JSObject
 
-@InvokeArg
-class OpenUrlArgs {
-    var value: String? = null
-}
-
 @TauriPlugin
 class OpenUrlPlugin(private val activity: Activity) : Plugin(activity) {
 
