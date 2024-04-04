@@ -3,8 +3,6 @@ use tauri::{
     Manager, Runtime,
 };
 
-use std::{collections::HashMap, sync::Mutex};
-
 pub use models::*;
 
 #[cfg(desktop)]
@@ -24,7 +22,7 @@ use desktop::Openurl;
 use mobile::Openurl;
 
 #[derive(Default)]
-struct MyState(Mutex<HashMap<String, String>>);
+struct MyState(());
 
 /// Extensions to [`tauri::App`], [`tauri::AppHandle`] and [`tauri::Window`] to access the openurl APIs.
 pub trait OpenurlExt<R: Runtime> {
