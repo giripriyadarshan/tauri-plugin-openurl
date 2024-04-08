@@ -1,12 +1,13 @@
 [package]
 name = "tauri-plugin-openurl"
-version = "0.0.0"
+version = "0.1.0-beta.1"
 authors = ["Priyadarshan Giri <giripriyadarshan@gmail.com>"]
-description = ""
+description = "open url in default browser (just like target blank)"
 edition = "2021"
-rust-version = "1.70"
+rust-version = "1.77"
 exclude = ["/examples", "/webview-dist", "/webview-src", "/node_modules"]
 links = "tauri-plugin-openurl"
+license = "MIT"
 
 [dependencies]
 tauri = { version = "2.0.0-beta.14" }
