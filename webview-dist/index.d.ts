@@ -1,1 +1,1 @@
-export declare function openUrl(url: string): Promise<void>;
+export declare function open_url(url: string): Promise<void>;
