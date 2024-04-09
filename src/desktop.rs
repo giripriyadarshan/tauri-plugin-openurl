@@ -1,5 +1,6 @@
 use serde::de::DeserializeOwned;
 use tauri::{plugin::PluginApi, AppHandle, Runtime};
+use std::process::Command;
 
 // use crate::models::*;
 
@@ -14,7 +15,20 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 pub struct Openurl<R: Runtime>(AppHandle<R>);
 
 impl<R: Runtime> Openurl<R> {
-    pub fn openurl(&self, _url: String) -> crate::Result<()> {
+    pub fn openurl(&self, url: String) -> crate::Result<()> {
+        if cfg!(target_os = "windows") {
+            Command::new("cmd")
+                .args(["/C", "start", url.as_str()])
+                .spawn().unwrap();
+        } else if cfg!(target_os = "macos") {
+            Command::new("open")
+                .arg(url)
+                .spawn().unwrap();
+        } else if cfg!(target_os = "linux") {
+            Command::new("xdg-open")
+                .arg(url)
+                .spawn().unwrap();
+        }
         Ok(())
     }
 }
