@@ -1,6 +1,6 @@
 use serde::de::DeserializeOwned;
-use tauri::{plugin::PluginApi, AppHandle, Runtime};
 use std::process::Command;
+use tauri::{command, ipc::Channel, plugin::PluginApi, AppHandle, Runtime, Window};
 
 // use crate::models::*;
 
@@ -19,16 +19,34 @@ impl<R: Runtime> Openurl<R> {
         if cfg!(target_os = "windows") {
             Command::new("cmd")
                 .args(["/C", "start", url.as_str()])
-                .spawn().unwrap();
+                .spawn()
+                .unwrap();
         } else if cfg!(target_os = "macos") {
-            Command::new("open")
-                .arg(url)
-                .spawn().unwrap();
+            Command::new("open").arg(url).spawn().unwrap();
         } else if cfg!(target_os = "linux") {
-            Command::new("xdg-open")
-                .arg(url)
-                .spawn().unwrap();
+            Command::new("xdg-open").arg(url).spawn().unwrap();
         }
         Ok(())
     }
+}
+
+#[command]
+pub async fn open_url<R: Runtime>(
+    _app: AppHandle<R>,
+    _window: Window<R>,
+    on_progress: Channel,
+    url: String,
+) {
+    if cfg!(target_os = "windows") {
+        Command::new("cmd")
+            .args(["/C", "start", url.as_str()])
+            .spawn()
+            .unwrap();
+    } else if cfg!(target_os = "macos") {
+        Command::new("open").arg(url).spawn().unwrap();
+    } else {
+        Command::new("xdg-open").arg(url).spawn().unwrap();
+    }
+
+    on_progress.send(100).unwrap();
 }

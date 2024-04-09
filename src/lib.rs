@@ -49,5 +49,6 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
             app.manage(MyState::default());
             Ok(())
         })
+        .invoke_handler(tauri::generate_handler![desktop::open_url])
         .build()
 }
