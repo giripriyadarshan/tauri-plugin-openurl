@@ -15,17 +15,7 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 pub struct Openurl<R: Runtime>(AppHandle<R>);
 
 impl<R: Runtime> Openurl<R> {
-    pub fn open_url(&self, url: String) -> crate::Result<()> {
-        if cfg!(target_os = "windows") {
-            Command::new("cmd")
-                .args(["/C", "start", url.as_str()])
-                .spawn()
-                .unwrap();
-        } else if cfg!(target_os = "macos") {
-            Command::new("open").arg(url).spawn().unwrap();
-        } else if cfg!(target_os = "linux") {
-            Command::new("xdg-open").arg(url).spawn().unwrap();
-        }
+    pub fn open_url(&self, _url: String) -> crate::Result<()> {
         Ok(())
     }
 }
