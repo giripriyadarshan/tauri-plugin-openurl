@@ -28,7 +28,7 @@ pub fn init<R: Runtime, C: DeserializeOwned>(
 pub struct Openurl<R: Runtime>(PluginHandle<R>);
 
 impl<R: Runtime> Openurl<R> {
-    pub fn openurl(&self, url: String) -> crate::Result<OpenurlResponse> {
+    pub fn open_url(&self, url: String) -> crate::Result<OpenurlResponse> {
         self.0
             .run_mobile_plugin("openurl", OpenurlRequest { url })
             .map_err(Into::into)
