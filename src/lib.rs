@@ -26,11 +26,11 @@ struct MyState(());
 
 /// Extensions to [`tauri::App`], [`tauri::AppHandle`] and [`tauri::Window`] to access the openurl APIs.
 pub trait OpenurlExt<R: Runtime> {
-    fn openurl(&self) -> &Openurl<R>;
+    fn open_url(&self) -> &Openurl<R>;
 }
 
 impl<R: Runtime, T: Manager<R>> crate::OpenurlExt<R> for T {
-    fn openurl(&self) -> &Openurl<R> {
+    fn open_url(&self) -> &Openurl<R> {
         self.state::<Openurl<R>>().inner()
     }
 }
