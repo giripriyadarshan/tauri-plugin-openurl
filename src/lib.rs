@@ -49,11 +49,11 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
         Ok(())
     });
 
-    if cfg!(desktop) {
-        builder
-            .invoke_handler(tauri::generate_handler![desktop::open_url])
-            .build()
-    } else {
-        builder.build()
-    }
+    #[cfg(desktop)]
+    return builder
+        .invoke_handler(tauri::generate_handler![desktop::open_url])
+        .build();
+
+    #[cfg(mobile)]
+    return builder.build();
 }
