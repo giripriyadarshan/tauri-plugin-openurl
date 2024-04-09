@@ -37,18 +37,23 @@ impl<R: Runtime, T: Manager<R>> crate::OpenurlExt<R> for T {
 
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
-    Builder::new("openurl")
-        .setup(|app, api| {
-            #[cfg(mobile)]
-            let open_url = mobile::init(app, api)?;
-            #[cfg(desktop)]
-            let open_url = desktop::init(app, api)?;
-            app.manage(open_url);
+    let builder = Builder::new("openurl").setup(|app, api| {
+        #[cfg(mobile)]
+        let open_url = mobile::init(app, api)?;
+        #[cfg(desktop)]
+        let open_url = desktop::init(app, api)?;
+        app.manage(open_url);
 
-            // manage state so it is accessible by the commands
-            app.manage(MyState::default());
-            Ok(())
-        })
-        .invoke_handler(tauri::generate_handler![desktop::open_url])
-        .build()
+        // manage state so it is accessible by the commands
+        app.manage(MyState::default());
+        Ok(())
+    });
+
+    if cfg!(mobile) {
+        builder.build()
+    } else {
+        builder
+            .invoke_handler(tauri::generate_handler![desktop::open_url])
+            .build()
+    }
 }

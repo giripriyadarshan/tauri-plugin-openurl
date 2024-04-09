@@ -1,6 +1,6 @@
 use serde::de::DeserializeOwned;
 use std::process::Command;
-use tauri::{command, ipc::Channel, plugin::PluginApi, AppHandle, Runtime, Window};
+use tauri::{command, plugin::PluginApi, AppHandle, Runtime, Window};
 
 // use crate::models::*;
 
@@ -31,11 +31,7 @@ impl<R: Runtime> Openurl<R> {
 }
 
 #[command]
-pub async fn open_url<R: Runtime>(
-    _app: AppHandle<R>,
-    _window: Window<R>,
-    url: String,
-) {
+pub async fn open_url<R: Runtime>(_app: AppHandle<R>, _window: Window<R>, url: String) {
     if cfg!(target_os = "windows") {
         Command::new("cmd")
             .args(["/C", "start", url.as_str()])
