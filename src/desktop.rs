@@ -34,7 +34,6 @@ impl<R: Runtime> Openurl<R> {
 pub async fn open_url<R: Runtime>(
     _app: AppHandle<R>,
     _window: Window<R>,
-    on_progress: Channel,
     url: String,
 ) {
     if cfg!(target_os = "windows") {
@@ -47,6 +46,4 @@ pub async fn open_url<R: Runtime>(
     } else {
         Command::new("xdg-open").arg(url).spawn().unwrap();
     }
-
-    on_progress.send(100).unwrap();
 }
