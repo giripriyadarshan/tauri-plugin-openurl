@@ -26,28 +26,34 @@ struct MyState(());
 
 /// Extensions to [`tauri::App`], [`tauri::AppHandle`] and [`tauri::Window`] to access the openurl APIs.
 pub trait OpenurlExt<R: Runtime> {
-    fn openurl(&self) -> &Openurl<R>;
+    fn open_url(&self) -> &Openurl<R>;
 }
 
 impl<R: Runtime, T: Manager<R>> crate::OpenurlExt<R> for T {
-    fn openurl(&self) -> &Openurl<R> {
+    fn open_url(&self) -> &Openurl<R> {
         self.state::<Openurl<R>>().inner()
     }
 }
 
 /// Initializes the plugin.
 pub fn init<R: Runtime>() -> TauriPlugin<R> {
-    Builder::new("openurl")
-        .setup(|app, api| {
-            #[cfg(mobile)]
-            let openurl = mobile::init(app, api)?;
-            #[cfg(desktop)]
-            let openurl = desktop::init(app, api)?;
-            app.manage(openurl);
+    let builder = Builder::new("openurl").setup(|app, api| {
+        #[cfg(mobile)]
+        let open_url = mobile::init(app, api)?;
+        #[cfg(desktop)]
+        let open_url = desktop::init(app, api)?;
+        app.manage(open_url);
 
-            // manage state so it is accessible by the commands
-            app.manage(MyState::default());
-            Ok(())
-        })
-        .build()
+        // manage state so it is accessible by the commands
+        app.manage(MyState::default());
+        Ok(())
+    });
+
+    #[cfg(desktop)]
+    return builder
+        .invoke_handler(tauri::generate_handler![desktop::open_url])
+        .build();
+
+    #[cfg(mobile)]
+    return builder.build();
 }
