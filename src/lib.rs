@@ -40,10 +40,10 @@ pub fn init<R: Runtime>() -> TauriPlugin<R> {
     Builder::new("openurl")
         .setup(|app, api| {
             #[cfg(mobile)]
-            let openurl = mobile::init(app, api)?;
+            let open_url = mobile::init(app, api)?;
             #[cfg(desktop)]
-            let openurl = desktop::init(app, api)?;
-            app.manage(openurl);
+            let open_url = desktop::init(app, api)?;
+            app.manage(open_url);
 
             // manage state so it is accessible by the commands
             app.manage(MyState::default());
