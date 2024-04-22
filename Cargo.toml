@@ -10,9 +10,14 @@ links = "tauri-plugin-openurl"
 license = "MIT"
 
 [dependencies]
-tauri = { version = "2.0.0-beta.14" }
+tauri = { version = "2.0.0-beta" }
 serde = "1.0.197"
 thiserror = "1.0.58"
 
 [build-dependencies]
-tauri-plugin = { version = "2.0.0-beta.11", features = ["build"] }
+tauri-plugin = { version = "2.0.0-beta", features = ["build"] }
+
+
+[[example]]
+name = "tauri-app"
+path = "examples/tauri-app"
