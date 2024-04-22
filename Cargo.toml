@@ -16,8 +16,3 @@ thiserror = "1.0.58"
 
 [build-dependencies]
 tauri-plugin = { version = "2.0.0-beta", features = ["build"] }
-
-
-[[example]]
-name = "tauri-app"
-path = "examples/tauri-app"
