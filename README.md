@@ -1,3 +1,11 @@
+![Crates.io Version](https://img.shields.io/crates/v/tauri-plugin-openurl)
+![Crates.io Total Downloads](https://img.shields.io/crates/d/tauri-plugin-openurl)
+![NPM Version](https://img.shields.io/npm/v/tauri-plugin-openurl-api)
+![NPM Downloads](https://img.shields.io/npm/d18m/tauri-plugin-openurl-api)
+
+
+
+
 # Tauri Plugin openurl
 
 Open url in browser on all platforms<sup>1</sup> (excluding IOS, still in testing). Basically `<a target="_blank"></a>` replacement for all platforms<sup>1</sup>.
