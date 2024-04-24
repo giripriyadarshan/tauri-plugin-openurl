@@ -1,11 +1,23 @@
 {
-  "name": "tauri-plugin-openurl-api",
-  "version": "0.0.0",
-  "author": "You",
-  "description": "",
+  "name": "tauri-plugin-openurl",
+  "version": "0.1.0-beta.3",
+  "author": "Priyadarshan Giri <giripriyadarshan@gmail.com> (https://giripriyadarshan.com)",
+  "description": "open url in default browser (just like target blank) in Tauri",
   "browser": "webview-dist/index.js",
   "main": "webview-dist/index.js",
   "types": "webview-dist/index.d.ts",
+  "keywords": ["tauri", "plugin", "rust"],
+  "license": "MIT",
+  "repository": "https://github.com/giripriyadarshan/tauri-plugin-openurl",
+  "files": [
+    "src",
+    "permissions",
+    "webview-dist",
+    "webview-src",
+    "android",
+    "ios",
+    "build.rs"
+  ],
   "scripts": {
     "build": "rollup -c ./webview-src/rollup.config.js",
     "prepublishOnly": "yarn build",
