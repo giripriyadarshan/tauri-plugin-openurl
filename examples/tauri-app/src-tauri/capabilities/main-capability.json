@@ -6,6 +6,6 @@
     "main"
   ],
   "permissions": [
-"openurl:allow-open-url"
+    "openurl:allow-open-url"
   ]
 }
