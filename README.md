@@ -27,6 +27,14 @@ npm i tauri-plugin-openurl-api
 cargo add tauri-plugin-openurl
 ```
 
+also add this to your tauri builder
+```rust
+tauri::Builder::default()
+    // other plugins
+    .plugin(tauri_plugin_openurl::init())
+    // rest of the builder
+```
+
 ### Usage
 
 ```javascript
