@@ -14,7 +14,7 @@
     "@tauri-apps/plugin-shell": ">=2.0.0-beta.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "tauri-plugin-openurl": "git+https://github.com/giripriyadarshan/tauri-plugin-openurl#feature/desktop-functionality"
+    "tauri-plugin-openurl-api": "git+https://github.com/giripriyadarshan/tauri-plugin-openurl#feature/desktop-functionality"
   },
   "devDependencies": {
     "@tauri-apps/cli": ">=2.0.0-beta.0",

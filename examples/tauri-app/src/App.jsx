@@ -13,15 +13,6 @@ function App() {
     setGreetMsg(await invoke("greet", { name }));
   }
 
-  async function open_in_browser(link) {
-      try {
-          await open_url(link)
-      }
-      catch (e) {
-          console.log(e)
-      }
-  }
-
   return (
     <div className="container">
       <h1>Welcome to Tauri!</h1>
@@ -61,7 +52,7 @@ function App() {
         // simple usage of open_url api
         */}
         <button onClick={() => {
-            open_in_browser("https://crates.io/crates/tauri-plugin-openurl").then( r => console.log(r))
+            open_url("https://crates.io/crates/tauri-plugin-openurl")
         }}>Click to open in default browser</button>
     </div>
   );
