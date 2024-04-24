@@ -1,5 +1,5 @@
 {
-  "name": "tauri-plugin-openurl",
+  "name": "tauri-plugin-openurl-api",
   "version": "0.1.0-beta.3",
   "author": "Priyadarshan Giri <giripriyadarshan@gmail.com> (https://giripriyadarshan.com)",
   "description": "open url in default browser (just like target blank) in Tauri",
