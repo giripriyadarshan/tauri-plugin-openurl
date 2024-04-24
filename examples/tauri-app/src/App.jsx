@@ -1,6 +1,7 @@
 import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import { invoke } from "@tauri-apps/api/core";
+import { open_url } from "tauri-plugin-openurl-api"
 import "./App.css";
 
 function App() {
@@ -10,6 +11,15 @@ function App() {
   async function greet() {
     // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
     setGreetMsg(await invoke("greet", { name }));
+  }
+
+  async function open_in_browser(link) {
+      try {
+          await open_url(link)
+      }
+      catch (e) {
+          console.log(e)
+      }
   }
 
   return (
@@ -46,6 +56,13 @@ function App() {
       </form>
 
       <p>{greetMsg}</p>
+
+        {/*
+        // simple usage of open_url api
+        */}
+        <button onClick={() => {
+            open_in_browser("https://crates.io/crates/tauri-plugin-openurl").then( r => console.log(r))
+        }}>Click to open in default browser</button>
     </div>
   );
 }

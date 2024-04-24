@@ -10,15 +10,16 @@
     "tauri": "tauri"
   },
   "dependencies": {
+    "@tauri-apps/api": ">=2.0.0-beta.0",
+    "@tauri-apps/plugin-shell": ">=2.0.0-beta.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "@tauri-apps/api": ">=2.0.0-beta.0",
-    "@tauri-apps/plugin-shell": ">=2.0.0-beta.0"
+    "tauri-plugin-openurl": "git+https://github.com/giripriyadarshan/tauri-plugin-openurl#feature/desktop-functionality"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.2.1",
-    "vite": "^5.0.0",
     "@tauri-apps/cli": ">=2.0.0-beta.0",
-    "internal-ip": "^7.0.0"
+    "@vitejs/plugin-react": "^4.2.1",
+    "internal-ip": "^7.0.0",
+    "vite": "^5.0.0"
   }
 }

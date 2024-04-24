@@ -1,0 +1,11 @@
+{
+  "identifier": "main-capability",
+  "description": "main-capability",
+  "local": true,
+  "windows": [
+    "main"
+  ],
+  "permissions": [
+"openurl:allow-open-url"
+  ]
+}
