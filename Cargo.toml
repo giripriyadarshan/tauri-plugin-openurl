@@ -10,9 +10,9 @@ links = "tauri-plugin-openurl"
 license = "MIT"
 
 [dependencies]
-tauri = { version = "2.0.0-beta" }
-serde = "1.0.197"
-thiserror = "1.0.58"
+tauri = { version = "2.0.0-rc" }
+serde = "1.0.204"
+thiserror = "1.0.63"
 
 [build-dependencies]
-tauri-plugin = { version = "2.0.0-beta", features = ["build"] }
+tauri-plugin = { version = "2.0.0-rc", features = ["build"] }
