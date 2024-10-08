@@ -295,18 +295,14 @@
       "type": "string",
       "oneOf": [
         {
-          "description": "allow-open-url -> Enables the open_url command without any pre-configured scope.",
+          "description": "Enables the open_url command without any pre-configured scope.",
           "type": "string",
-          "enum": [
-            "allow-open-url"
-          ]
+          "const": "allow-open-url"
         },
         {
-          "description": "deny-open-url -> Denies the open_url command without any pre-configured scope.",
+          "description": "Denies the open_url command without any pre-configured scope.",
           "type": "string",
-          "enum": [
-            "deny-open-url"
-          ]
+          "const": "deny-open-url"
         }
       ]
     }
