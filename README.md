@@ -4,7 +4,7 @@
 ![NPM Downloads](https://img.shields.io/npm/d18m/tauri-plugin-openurl-api)
 
 
-
+# Update: This project is replaced by Official Tauri Plugin. For more details [Tauri Opener](https://tauri.app/plugin/opener/)
 
 # Tauri Plugin openurl
 
